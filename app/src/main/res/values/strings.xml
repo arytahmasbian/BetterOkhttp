@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="serverExceptionMessage">خطا در ارتباط با سرور</string>
+    <string name="PleaseTryAgain">مشکل در ارتباط با سرور، لطفا دوباره تلاش کنید.</string>
+    <string name="jsonExceptionMessage">مشکل در داده های ارسالی</string>
+    <string name="responseIsOk">گرفتن دیتا با موفقیت انجام شد.</string>
+    <string name="app_name">BetterOkhttp</string>
+    <string name="internetError">خطا در اتصال به اینترنت</string>
+    <string name="tryAgain">تلاش مجدد</string>
+</resources>

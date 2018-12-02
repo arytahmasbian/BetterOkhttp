@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/main"
+    tools:context=".mvp.main.MainActivity">
+
+    <Button
+        android:id="@+id/submitGet"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="270dp"
+        android:onClick="onClick"
+        android:text="Get"
+        android:textColor="@color/text_black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/submitPost"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <Button
+        android:id="@+id/submitPost"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="47dp"
+        android:onClick="onClick"
+        android:text="Post"
+        android:textColor="@color/text_black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/submitGet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toEndOf="@+id/submitGet"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/progressBar"
+        style="@style/SpinKitView.Large.WanderingCubes"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="73dp"
+        android:padding="4dp"
+        app:SpinKit_Color="#04a2e6"
+        app:layout_constraintBottom_toTopOf="@+id/submitGet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+</android.support.constraint.ConstraintLayout>
