@@ -8,7 +8,6 @@ import android.widget.ProgressBar;
 import com.arianroid.betterokhttp.R;
 import com.arianroid.betterokhttp.tools.base.BaseActivity;
 import com.arianroid.betterokhttp.tools.views.message.MessageHelper;
-import com.github.ybq.android.spinkit.style.RotatingCircle;
 import com.github.ybq.android.spinkit.style.WanderingCubes;
 
 public class MainActivity
@@ -66,5 +65,12 @@ public class MainActivity
     public void closeWaiting() {
         progressBar.setIndeterminate(false);
         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        super.onBackPressed();
+
     }
 }
