@@ -16,7 +16,7 @@ class SplashPresenter {
             view.showWaiting();
             new android.os.Handler().postDelayed(() -> {
                 view.goToMainPage();
-            }, 500);
+            }, 3000L);
         }else view.showMsg(R.string.internetError);
     }
 
