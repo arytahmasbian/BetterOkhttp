@@ -1,13 +1,33 @@
 package com.arianroid.betterokhttp.tools.api;
 
+import android.util.Log;
+
 import com.arianroid.betterokhttp.tools.CustomOkhttp.BaseOkhttp;
+import com.arianroid.betterokhttp.tools.CustomOkhttp.BaseOkhttpResponse;
 import com.arianroid.betterokhttp.tools.CustomOkhttp.BaseOkhttpRunnable;
 import com.arianroid.betterokhttp.tools.CustomOkhttp.BasePairValue;
+import com.arianroid.betterokhttp.tools.dto.base.BaseModel;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 
 class GeneralApi {
+
+    public static <T> ArrayList<Object> createObjectList(ArrayList<T> inputs) {
+        if (inputs == null)
+            return null;
+
+        ArrayList<Object> objects = new ArrayList<>();
+
+        for (T t : inputs)
+            objects.add(t);
+
+        return objects;
+    }
+
+
 
     static <T> void getItemList(final Class<T> cls, String url, BaseOkhttpRunnable runnable, ArrayList<BasePairValue> pairs) {
 
@@ -19,16 +39,22 @@ class GeneralApi {
 
     }
 
-    static <T> void getItemList(final Class<T> cls, String url, BaseOkhttpRunnable runnable) {
+    static <T> ArrayList<T> getItemList(
+            final Class<T> cls,
+            String url,
+            BaseOkhttpRunnable runnable) {
 
-        BaseOkhttp.postInBackground(url,
-                null,
-                runnable,
-                new ArrayList<>(),
-                ApiConfig.getHeaders());
+        //        BaseOkhttp.postInBackground(url,
+        //                null,
+        //                runnable,
+        //                new ArrayList<>(),
+        //                ApiConfig.getHeaders());
 
 
-        /*if (response.isSuccess()) {
+        BaseOkhttpResponse response = BaseOkhttp.get(url, ApiConfig.getHeaders());
+
+
+        if (response.isSuccess()) {
             try {
                 Type type = new ParameterizedType() {
                     @Override
@@ -46,12 +72,14 @@ class GeneralApi {
                         return null;
                     }
                 };
-                return ModelParser.getGson().fromJson(response.getBody().getJSONArray(Tags.DATA).toString(), type);
+
+                return BaseModel.getGson().fromJson(response.getBody()
+                        .getJSONArray(0).toString(), type);
             } catch (Exception e) {
-                return null;
+                Log.i("Log", "getItemList: e :" + e.getMessage());
             }
         }
-        return null;*/
+        return null;
     }
 
 
