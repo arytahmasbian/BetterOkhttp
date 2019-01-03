@@ -4,6 +4,7 @@ package com.arianroid.betterokhttp.tools.api;
 import com.arianroid.betterokhttp.tools.CustomOkhttp.BaseOkhttpRunnable;
 import com.arianroid.betterokhttp.tools.CustomOkhttp.BasePairValue;
 import com.arianroid.betterokhttp.tools.Tags;
+import com.arianroid.betterokhttp.tools.dto.data;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class ReqResApi {
 
         String userUrl = API_URL + userId;
 
-        GeneralApi.getItemList(userUrl, runnable);
+        GeneralApi.getItemList(data.class, userUrl, runnable);
     }
 
     public static void createUser(
