@@ -36,10 +36,10 @@ public class BaseOkhttp {
     // ******************** Post ****************************
 
 
-    private static BaseOkhttpResponse post(String url,
-                                           JSONObject json,
-                                           ArrayList<BasePairValue> parts,
-                                           ArrayList<BasePairValue> headers) {
+    public static BaseOkhttpResponse post(String url,
+                                          JSONObject json,
+                                          ArrayList<BasePairValue> parts,
+                                          ArrayList<BasePairValue> headers) {
 
         RequestBody body = null;
         if (parts != null) {
@@ -91,7 +91,7 @@ public class BaseOkhttp {
     }
 
     // ******************** Get ****************************************
-    private static BaseOkhttpResponse get(
+    public static BaseOkhttpResponse get(
             String url,
             ArrayList<BasePairValue> headers) {
 
